@@ -1,32 +1,32 @@
 package com.chakri.games.reddogchallenge.game.model;
 
 public class Card {
-    private String rank;
-    private String suit;
+    private Rank rank;
+    private Suit suit;
 
-    public Card(String rank, String suit){
+    public Card(Rank rank, Suit suit){
         this.rank = rank;
         this.suit = suit;
     }
 
-    public String getRank() {
+    public Rank getRank() {
         return rank;
     }
 
-    public void setRank(String rank) {
+    public void setRank(Rank rank) {
         this.rank = rank;
     }
 
-    public String getSuit() {
+    public Suit getSuit() {
         return suit;
     }
 
-    public void setSuit(String suit) {
+    public void setSuit(Suit suit) {
         this.suit = suit;
     }
 
     public String getCard(){
-        return this.rank + " " + this.suit;
+        return this.rank + "-" + this.suit;
     }
 
 }

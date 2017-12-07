@@ -1,31 +1,39 @@
 package com.chakri.games.reddogchallenge.game.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Player {
-    private String name;
-    private Card[] cards;
-    private Integer chips;
+    private String playerName;
+    private List<Card> cardsInHand = new ArrayList<>();
+    private int chipsInHand = 0;
 
-    public String getName() {
-        return name;
+    public Player(String playerName, Integer chipsPerPlayer) {
+        this.playerName = playerName;
+        this.chipsInHand = chipsPerPlayer;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getPlayerName() {
+        return playerName;
     }
 
-    public Card[] getCards() {
-        return cards;
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
     }
 
-    public void setCards(Card[] cards) {
-        this.cards = cards;
+    public List<Card> getCardsInHand() {
+        return cardsInHand;
     }
 
-    public Integer getChips() {
-        return chips;
+    public void setCardsInHand(List<Card> cardsInHand) {
+        this.cardsInHand = cardsInHand;
     }
 
-    public void setChips(Integer chips) {
-        this.chips = chips;
+    public Integer getChipsInHand() {
+        return chipsInHand;
+    }
+
+    public void setChipsInHand(Integer chipsInHand) {
+        this.chipsInHand = chipsInHand;
     }
 }
