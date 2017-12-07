@@ -35,7 +35,6 @@ public class DeckOfCards {
 
 
     public void dealCards(List<Player> players) {
-        currentCardIndex = 0;
         int noOfPlayers = players.size();
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < noOfPlayers; j++) {
