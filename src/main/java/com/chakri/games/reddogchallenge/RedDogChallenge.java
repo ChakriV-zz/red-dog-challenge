@@ -19,6 +19,7 @@ public class RedDogChallenge {
         while (players.size() != 1) {
             deckOfCards.shuffleCards();
             deckOfCards.dealCards(players);
+            initializePot(players);
             play(players, deckOfCards);
         }
         System.out.println(players.get(0).getPlayerName() + " is the winner");
@@ -26,12 +27,17 @@ public class RedDogChallenge {
 
     private static void play(List<Player> players, DeckOfCards deckOfCards) {
         System.out.println("Playing");
-        initializePot(players);
+        boolean potEmpty = false;
         for (Player player : players) {
             if (pot == 0) {
-                initializePot(players);
+                potEmpty = true;
+                break;
             }
             playRound(player, deckOfCards);
+        }
+        if(potEmpty){
+            initializePot(players);
+            play(players, deckOfCards);
         }
     }
 
@@ -60,7 +66,7 @@ public class RedDogChallenge {
 
     private static void playRound(Player player, DeckOfCards deckOfCards) {
         Integer playerChips = player.getChipsInHand();
-        int playerBet = ThreadLocalRandom.current().nextInt(0, Integer.max(playerChips, pot) + 1);
+        int playerBet = ThreadLocalRandom.current().nextInt(0, Integer.min(playerChips, pot) + 1);
         if (playerBet >= 1) {
             pot = pot + playerBet;
             Card dealtCard = deckOfCards.dealCard();
